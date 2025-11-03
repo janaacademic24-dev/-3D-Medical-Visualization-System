@@ -58,3 +58,7 @@ Showcase different anatomical systems and visualization modes:
 | Musculoskeletal System | ![Musculoskeletal System](images/musculoskeletal.png) |
 | Dental System | ![Dental System](images/dental_system.png) |
 | Cardiovascular System | ![Cardiovascular System](images/cardiovascular.png) |
+
+## 🧩 Project Structure
+
+```bash
