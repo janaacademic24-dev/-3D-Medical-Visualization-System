@@ -182,27 +182,14 @@ data/
     ├── bicep.obj
     ├── tricep.obj
     └── bone.obj
-```## 🗂️ File Organization
+## 🎓 Educational Useeng
 
-### Preparing Your Models
+This system is ideal for:
+- Medical education and training
+- Anatomical visualization
+- Surgical planning demonstrations
+- Research presentations
+- Medical imaging workshops
+## 👨‍💻 Author
 
-Organize `.obj` files by organ system:
-```
-data/
-├── brain/
-│   ├── cortex.obj
-│   ├── cerebellum.obj
-│   └── white_matter.obj
-├── heart/
-│   ├── left_ventricle.obj
-│   ├── right_ventricle.obj
-│   └── aorta.obj
-├── teeth/
-│   ├── tooth_01.obj
-│   ├── tooth_02.obj
-│   └── jaw.obj
-└── muscle/
-    ├── bicep.obj
-    ├── tricep.obj
-    └── bone.obj
-```
+Jana Hazem Mohamed - [your.email@example.com](mailto:jana.taha06@eng-st.cu.edu.eg)
