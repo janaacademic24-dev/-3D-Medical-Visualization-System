@@ -182,14 +182,14 @@ data/
     ├── bicep.obj
     ├── tricep.obj
     └── bone.obj
-## 🎓 Educational Useeng
 
+## 🎓 Educational Usage
 This system is ideal for:
 - Medical education and training
 - Anatomical visualization
 - Surgical planning demonstrations
 - Research presentations
 - Medical imaging workshops
-## 👨‍💻 Author
 
-Jana Hazem Mohamed - [your.email@example.com](mailto:jana.taha06@eng-st.cu.edu.eg)
+## 👨‍💻 Author
+Jana Hazem Mohamed -(mailto:jana.taha06@eng-st.cu.edu.eg)
