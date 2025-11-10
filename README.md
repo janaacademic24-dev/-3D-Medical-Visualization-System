@@ -54,11 +54,14 @@ Showcase different anatomical systems and visualization modes:
 
 | System | Example |
 |---------|----------|
-| Nervous System | ![Nervous System](images/nervous_system.png) |
-| Musculoskeletal System | ![Musculoskeletal System](images/musculoskeletal.png) |
+| Nervous System | ![Nervous System](![BRAIN IMAGE](https://github.com/user-attachments/assets/c81034a2-86dd-49d1-a29f-ff2b7c57e57b)
+) |
+| Musculoskeletal System | ![Musculoskeletal System](![muscle image ](https://github.com/user-attachments/assets/a50b7731-0d54-4cd6-a577-a80979070679)
+) |
 | Dental System | ![Dental System](![TEETH IMAGE ](https://github.com/user-attachments/assets/e0e0df15-c9e3-4398-9d54-f3be288a075e)
  |
-| Cardiovascular System | ![Cardiovascular System](images/cardiovascular.png) |
+| Cardiovascular System | ![Cardiovascular System](![HEART IMAGE ](https://github.com/user-attachments/assets/cbcbd9fd-1e44-4268-b30f-30e684c83d6b)
+) |
 
 ## 🧩 Project Structure
 
