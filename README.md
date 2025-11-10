@@ -54,17 +54,12 @@ Showcase different anatomical systems and visualization modes:
 
 | System | Example |
 |---------|----------|
-| Nervous System | ![Nervous System](![BRAIN IMAGE](https://github.com/user-attachments/assets/c81034a2-86dd-49d1-a29f-ff2b7c57e57b)
-) |
-| Musculoskeletal System | ![Musculoskeletal System](![muscle image ](https://github.com/user-attachments/assets/a50b7731-0d54-4cd6-a577-a80979070679)
-) |
-| Dental System | ![Dental System](![TEETH IMAGE ](https://github.com/user-attachments/assets/e0e0df15-c9e3-4398-9d54-f3be288a075e)
- |
-| Cardiovascular System | ![Cardiovascular System](![HEART IMAGE ](https://github.com/user-attachments/assets/cbcbd9fd-1e44-4268-b30f-30e684c83d6b)
-) |
-| Curved MPR| ![Dental System](![BRAIN IMAGE](![WhatsApp Image 2025-11-06 at 10 52 38 PM](https://github.com/user-attachments/assets/652e0c03-179a-4ff0-9ddf-d6148df7cbe2)
-)
-) |
+| Nervous System | ![Nervous System](https://github.com/user-attachments/assets/c81034a2-86dd-49d1-a29f-ff2b7c57e57b) |
+| Musculoskeletal System | ![Musculoskeletal System](https://github.com/user-attachments/assets/a50b7731-0d54-4cd6-a577-a80979070679) |
+| Dental System | ![Dental System](https://github.com/user-attachments/assets/e0e0df15-c9e3-4398-9d54-f3be288a075e) |
+| Cardiovascular System | ![Cardiovascular System](https://github.com/user-attachments/assets/cbcbd9fd-1e44-4268-b30f-30e684c83d6b) |
+| Curved MPR | ![Curved MPR](https://github.com/user-attachments/assets/652e0c03-179a-4ff0-9ddf-d6148df7cbe2) |
+
 
 ## 🧩 Project Structure
 
