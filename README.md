@@ -61,6 +61,148 @@ Showcase different anatomical systems and visualization modes:
 | Curved MPR | ![Curved MPR](https://github.com/user-attachments/assets/652e0c03-179a-4ff0-9ddf-d6148df7cbe2) |
 
 
-## 🧩 Project Structure
+## 🚀 Quick Start
 
+### Prerequisites
+- Python 3.8 or higher
+- pip package manager
+
+### Installation
+
+1. **Clone the repository**
 ```bash
+git clone https://github.com/yourusername/medical-visualization.git
+cd medical-visualization
+```
+
+2. **Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+3. **Run the application**
+```bash
+python main.py
+```
+
+---
+
+## 📦 Dependencies
+
+### Required Packages
+```txt
+PyQt5>=5.15.0
+vtk>=9.0.0
+numpy>=1.19.0
+scipy>=1.5.0
+matplotlib>=3.3.0
+```
+
+### Optional Packages (for enhanced features)
+```txt
+pydicom>=2.0.0          # For DICOM support
+nibabel>=3.2.0          # For NIFTI support
+Pillow>=8.0.0           # For image saving
+```
+
+Install all dependencies:
+```bash
+# Core dependencies only
+pip install PyQt5 vtk numpy scipy matplotlib
+
+# With optional features
+pip install PyQt5 vtk numpy scipy matplotlib pydicom nibabel Pillow
+```
+
+---
+### Basic Usage (5 Minutes)
+
+1. **Launch Application**
+   ```bash
+   python main.py
+   ```
+
+2. **Select Organ System**
+   - Choose from Brain 🧠, Heart ❤️, Teeth 🦷, or Muscle 💪
+   - Read feature overview and click Continue
+
+3. **Load Your 3D Models**
+   - Click **"📂 Load 3D Models (OBJ)"**
+   - Select folder containing `.obj` files
+   - Models appear with realistic anatomical colors
+
+4. **Explore with Mouse**
+   - **Rotate**: Left drag
+   - **Pan**: Middle drag (or Shift + Left)
+   - **Zoom**: Scroll wheel
+## 🗂️ File Organization
+
+### Preparing Your Models
+
+Organize `.obj` files by organ system:
+```
+data/
+├── brain/
+│   ├── cortex.obj
+│   ├── cerebellum.obj
+│   └── white_matter.obj
+├── heart/
+│   ├── left_ventricle.obj
+│   ├── right_ventricle.obj
+│   └── aorta.obj
+├── teeth/
+│   ├── tooth_01.obj
+│   ├── tooth_02.obj
+│   └── jaw.obj
+└── muscle/
+    ├── bicep.obj
+    ├── tricep.obj
+    └── bone.obj
+```
+## 🗂️ File Organization
+
+### Preparing Your Models
+
+Organize `.obj` files by organ system:
+```
+data/
+├── brain/
+│   ├── cortex.obj
+│   ├── cerebellum.obj
+│   └── white_matter.obj
+├── heart/
+│   ├── left_ventricle.obj
+│   ├── right_ventricle.obj
+│   └── aorta.obj
+├── teeth/
+│   ├── tooth_01.obj
+│   ├── tooth_02.obj
+│   └── jaw.obj
+└── muscle/
+    ├── bicep.obj
+    ├── tricep.obj
+    └── bone.obj
+```## 🗂️ File Organization
+
+### Preparing Your Models
+
+Organize `.obj` files by organ system:
+```
+data/
+├── brain/
+│   ├── cortex.obj
+│   ├── cerebellum.obj
+│   └── white_matter.obj
+├── heart/
+│   ├── left_ventricle.obj
+│   ├── right_ventricle.obj
+│   └── aorta.obj
+├── teeth/
+│   ├── tooth_01.obj
+│   ├── tooth_02.obj
+│   └── jaw.obj
+└── muscle/
+    ├── bicep.obj
+    ├── tricep.obj
+    └── bone.obj
+```
