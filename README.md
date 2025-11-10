@@ -62,6 +62,9 @@ Showcase different anatomical systems and visualization modes:
  |
 | Cardiovascular System | ![Cardiovascular System](![HEART IMAGE ](https://github.com/user-attachments/assets/cbcbd9fd-1e44-4268-b30f-30e684c83d6b)
 ) |
+| Curved MPR| ![Dental System](![BRAIN IMAGE](![WhatsApp Image 2025-11-06 at 10 52 38 PM](https://github.com/user-attachments/assets/652e0c03-179a-4ff0-9ddf-d6148df7cbe2)
+)
+) |
 
 ## 🧩 Project Structure
 
