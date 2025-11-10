@@ -56,7 +56,8 @@ Showcase different anatomical systems and visualization modes:
 |---------|----------|
 | Nervous System | ![Nervous System](images/nervous_system.png) |
 | Musculoskeletal System | ![Musculoskeletal System](images/musculoskeletal.png) |
-| Dental System | ![Dental System](images/dental_system.png) |
+| Dental System | ![Dental System](![TEETH IMAGE ](https://github.com/user-attachments/assets/e0e0df15-c9e3-4398-9d54-f3be288a075e)
+ |
 | Cardiovascular System | ![Cardiovascular System](images/cardiovascular.png) |
 
 ## 🧩 Project Structure
