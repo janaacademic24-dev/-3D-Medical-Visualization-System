@@ -1,0 +1,493 @@
+# 📂 Code Organization Guide
+
+This guide shows you exactly how to split the monolithic Python file into organized modules.
+
+## 🗂️ File Structure
+
+```
+medical-visualization/
+├── README.md                    # Main documentation
+├── requirements.txt            # Python dependencies
+├── main.py                     # Application entry point
+│
+├── config/
+│   ├── __init__.py
+│   └── organ_colors.py         # Color definitions
+│
+├── core/
+│   ├── __init__.py
+│   ├── organ_loader.py         # OBJ file loading
+│   ├── dicom_loader.py         # DICOM loading
+│   └── navigation.py           # Navigation controller
+│
+├── ui/
+│   ├── __init__.py
+│   ├── welcome_screen.py       # Welcome dialog
+│   ├── features_screen.py      # Features overview
+│   └── main_window.py          # Main application window
+│
+├── features/
+│   ├── __init__.py
+│   ├── clipping_manager.py     # Multi-planar clipping
+│   ├── heart_animation.py      # Heart pumping
+│   ├── curved_mpr.py           # Curved MPR controller
+│   └── standalone_mpr.py       # Standalone MPR window
+│
+├── docs/
+│   └── USER_GUIDE.md           # Complete user guide
+│
+
+```
+
+---
+
+## 📝 File Contents
+
+### 1. `config/organ_colors.py`
+
+**Extract:** Lines 47-138 from original file
+
+**Content:**
+```python
+"""
+Organ Color Definitions
+Realistic anatomical colors for different organ systems
+"""
+
+ORGAN_COLORS = {
+    'brain': {
+        'cortex': (0.95, 0.85, 0.80),
+        # ... rest of brain colors
+    },
+    'heart': {
+        'left_ventricle': (0.75, 0.15, 0.15),
+        # ... rest of heart colors
+    },
+    # ... teeth and muscle
+}
+
+def get_realistic_color(organ_type, part_name):
+    """Get realistic color for organ part"""
+    # ... function implementation
+```
+
+---
+
+### 2. `core/organ_loader.py`
+
+**Extract:** Lines 822-876 from original file
+
+**Content:**
+```python
+"""
+3D Model Loader for Organ Visualization
+Handles OBJ file loading with realistic coloring
+"""
+
+import os
+import vtk
+from config.organ_colors import get_realistic_color
+
+
+class OrganLoader:
+    """Loads 3D organ models from OBJ files with realistic colors"""
+    
+    def __init__(self, organ_type='brain'):
+        self.organ_type = organ_type
+        self.parts = {}
+        self.actors = {}
+        self.mappers = {}
+    
+    # ... rest of class implementation
+```
+
+---
+
+### 3. `core/dicom_loader.py`
+
+**Extract:** Lines 565-671 from original file
+
+**Content:**
+```python
+"""
+DICOM Series Loader
+Loads and manages DICOM image series for MPR
+"""
+
+import os
+import vtk
+try:
+    import pydicom
+    DICOM_AVAILABLE = True
+except ImportError:
+    DICOM_AVAILABLE = False
+
+
+class DICOMLoader:
+    """Loads and manages DICOM image series"""
+    
+    def __init__(self):
+        self.image_data = None
+        self.spacing = None
+        # ... rest of initialization
+    
+    # ... rest of class implementation
+```
+
+---
+
+### 4. `core/navigation.py`
+
+**Extract:** Lines 991-1197 from original file
+
+**Content:**
+```python
+"""
+Navigation Controller
+Handles focus navigation, fly-through, and camera control
+"""
+
+import numpy as np
+import vtk
+from scipy import interpolate
+
+
+class NavigationController:
+    """Controls navigation including focus navigation and fly-through"""
+    
+    def __init__(self, renderer, camera):
+        self.renderer = renderer
+        self.camera = camera
+        # ... rest of initialization
+    
+    # ... rest of class implementation
+```
+
+---
+
+### 5. `features/clipping_manager.py`
+
+**Extract:** Lines 879-988 from original file
+
+**Content:**
+```python
+"""
+Multi-Planar Clipping Manager
+Manages orthogonal clipping planes for organ visualization
+"""
+
+import numpy as np
+import vtk
+
+
+class MultiPlanarClippingManager:
+    """Manages multiple orthogonal clipping planes"""
+    
+    def __init__(self, renderer):
+        self.renderer = renderer
+        self.axial_planes = []
+        # ... rest of initialization
+    
+    # ... rest of class implementation
+```
+
+---
+
+### 6. `features/heart_animation.py`
+
+**Extract:** Lines 1200-1297 from original file
+
+**Content:**
+```python
+"""
+Heart Animation Controller
+Realistic cardiac pumping simulation
+"""
+
+import numpy as np
+import vtk
+
+
+class HeartAnimationController:
+    """Controls heart pumping animation"""
+    
+    def __init__(self, renderer, actors_dict):
+        self.renderer = renderer
+        self.actors_dict = actors_dict
+        # ... rest of initialization
+    
+    # ... rest of class implementation
+```
+
+---
+
+### 7. `features/curved_mpr.py`
+
+**Extract:** Lines 674-820 from original file
+
+**Content:**
+```python
+"""
+Curved MPR Controller
+Manages Curved Multi-Planar Reconstruction
+"""
+
+import numpy as np
+import vtk
+from scipy import interpolate
+from core.dicom_loader import DICOMLoader
+
+
+class CurvedMPRController:
+    """Manages Curved Multi-Planar Reconstruction"""
+    
+    def __init__(self, renderer):
+        self.renderer = renderer
+        self.dicom_loader = DICOMLoader()
+        # ... rest of initialization
+    
+    # ... rest of class implementation
+```
+
+---
+
+### 8. `features/standalone_mpr.py`
+
+**Extract:** Lines 141-562 from original file
+
+**Content:**
+```python
+"""
+Standalone Curved MPR Window
+Independent window for advanced MPR generation
+"""
+
+import os
+import numpy as np
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import Qt
+import matplotlib
+matplotlib.use('Qt5Agg')
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
+from matplotlib.figure import Figure
+
+try:
+    import pydicom
+    DICOM_AVAILABLE = True
+except ImportError:
+    DICOM_AVAILABLE = False
+
+try:
+    import nibabel as nib
+    NIBABEL_AVAILABLE = True
+except ImportError:
+    NIBABEL_AVAILABLE = False
+
+
+class StandaloneMPRWindow(QDialog):
+    """Standalone MPR Generator Window"""
+    
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        # ... rest of initialization
+    
+    # ... rest of class implementation
+```
+
+---
+
+### 9. `ui/welcome_screen.py`
+
+**Extract:** Lines 1300-1379 from original file
+
+**Content:**
+```python
+"""
+Welcome Screen
+Initial system selection dialog
+"""
+
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QFont
+
+
+class WelcomeScreen(QDialog):
+    """Welcome screen showing available systems"""
+    
+    def __init__(self):
+        super().__init__()
+        self.selected_system = None
+        self.init_ui()
+    
+    # ... rest of class implementation
+```
+
+---
+
+### 10. `ui/features_screen.py`
+
+**Extract:** Lines 1382-1471 from original file
+
+**Content:**
+```python
+"""
+Features Overview Screen
+Shows available features for selected system
+"""
+
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QFont
+
+
+class FeaturesScreen(QDialog):
+    """Features overview screen"""
+    
+    def __init__(self, system_name):
+        super().__init__()
+        self.system_name = system_name
+        self.init_ui()
+    
+    # ... rest of class implementation
+```
+
+---
+
+### 11. `ui/main_window.py`
+
+**Extract:** Lines 1474-2170 from original file
+
+**Content:**
+```python
+"""
+Main Application Window
+Primary interface for medical visualization
+"""
+
+import sys
+import vtk
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import Qt, QTimer
+from PyQt5.QtGui import QFont
+from vtkmodules.qt.QVTKRenderWindowInteractor import QVTKRenderWindowInteractor
+
+from ui.welcome_screen import WelcomeScreen
+from ui.features_screen import FeaturesScreen
+from core.organ_loader import OrganLoader
+from core.navigation import NavigationController
+from features.clipping_manager import MultiPlanarClippingManager
+from features.curved_mpr import CurvedMPRController
+from features.heart_animation import HeartAnimationController
+from features.standalone_mpr import StandaloneMPRWindow
+
+
+class MultiOrganVisualizationApp(QMainWindow):
+    """Main application window"""
+    
+    def __init__(self):
+        super().__init__()
+        # ... rest of initialization
+    
+    # ... rest of class implementation
+```
+
+---
+
+## 🔧 Step-by-Step Splitting Process
+
+### Step 1: Create Directory Structure
+```bash
+mkdir -p config core ui features docs data/sample_models
+touch config/__init__.py core/__init__.py ui/__init__.py features/__init__.py
+```
+
+### Step 2: Create Each File
+
+For each file listed above:
+1. Create the file: `touch filename.py`
+2. Copy the docstring header
+3. Copy necessary imports
+4. Copy the relevant class/function
+5. Update imports to use relative paths
+
+### Step 3: Update `__init__.py` Files
+
+**config/__init__.py:**
+```python
+from .organ_colors import ORGAN_COLORS, get_realistic_color
+```
+
+**core/__init__.py:**
+```python
+from .organ_loader import OrganLoader
+from .dicom_loader import DICOMLoader
+from .navigation import NavigationController
+```
+
+**features/__init__.py:**
+```python
+from .clipping_manager import MultiPlanarClippingManager
+from .heart_animation import HeartAnimationController
+from .curved_mpr import CurvedMPRController
+from .standalone_mpr import StandaloneMPRWindow
+```
+
+**ui/__init__.py:**
+```python
+from .welcome_screen import WelcomeScreen
+from .features_screen import FeaturesScreen
+from .main_window import MultiOrganVisualizationApp
+```
+
+### Step 4: Test Imports
+```python
+# Test each module independently
+python -c "from config import ORGAN_COLORS; print('✓ config')"
+python -c "from core import OrganLoader; print('✓ core')"
+python -c "from features import MultiPlanarClippingManager; print('✓ features')"
+python -c "from ui import WelcomeScreen; print('✓ ui')"
+```
+
+### Step 5: Run Application
+```bash
+python main.py
+```
+
+---
+
+## ✅ Verification Checklist
+
+- [ ] All imports work correctly
+- [ ] No circular import errors
+- [ ] Application launches successfully
+- [ ] All features functional
+- [ ] No missing dependencies
+- [ ] Documentation matches structure
+
+---
+
+
+## 📚 Benefits of This Structure
+
+1. **Modularity**: Each component is independent
+2. **Maintainability**: Easy to find and update code
+3. **Testability**: Test individual modules
+4. **Scalability**: Add new features easily
+5. **Collaboration**: Multiple developers can work simultaneously
+6. **Reusability**: Import components in other projects
+
+---
+
+## 🎯 Next Steps After Splitting
+
+1. **Add unit tests** in `tests/` directory
+2. **Create examples** in `examples/` directory
+3. **Add type hints** for better code clarity
+4. **Write docstrings** for all functions
+5. **Setup CI/CD** for automated testing
+
+---
+
+**Happy Coding! 💻**
