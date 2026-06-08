@@ -135,30 +135,7 @@ pip install PyQt5 vtk numpy scipy matplotlib pydicom nibabel Pillow
    - **Rotate**: Left drag
    - **Pan**: Middle drag (or Shift + Left)
    - **Zoom**: Scroll wheel
-## 🗂️ File Organization
 
-### Preparing Your Models
-
-Organize `.obj` files by organ system:
-```
-data/
-├── brain/
-│   ├── cortex.obj
-│   ├── cerebellum.obj
-│   └── white_matter.obj
-├── heart/
-│   ├── left_ventricle.obj
-│   ├── right_ventricle.obj
-│   └── aorta.obj
-├── teeth/
-│   ├── tooth_01.obj
-│   ├── tooth_02.obj
-│   └── jaw.obj
-└── muscle/
-    ├── bicep.obj
-    ├── tricep.obj
-    └── bone.obj
-```
 ## 🗂️ File Organization
 
 ### Preparing Your Models
